@@ -5,9 +5,22 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link href="{{ asset('stylesheets/styles.css') }}" rel="stylesheet" type="text/css" />
     </head>
     <body>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+
+
+        
+    <script src="{{ asset('node_modules/jquery/dist/jquery.min.js') }}"></script>
+
+    <script src="{{ asset('node_modules/underscore/underscore-min.js') }}"></script>
+    <script src="{{ asset('node_modules/backbone/backbone-min.js') }}"></script>
+    <script src="{{ asset('node_modules/backbone-validation/dist/backbone-validation-min.js') }}"></script>
+    <script src="{{ asset('javascripts/libs/bootstrap/modal.js') }}"></script>
+    <script src="{{ asset('javascripts/libs/jquery.serializeObject.min.js') }}"></script>
+    <script src="{{ asset('src/test.js') }}"></script>
+
     </body>
 </html>

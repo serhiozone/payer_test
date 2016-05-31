@@ -1,6 +1,137 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <p>Url for ajax form submit: {{ path('process.form') }}</p>
+
+
+    <header class="page-header container">
+        <div class="row">
+            <div class="col-sm-5">
+                <h1 class="h1">Application form</h1>
+            </div>
+            <div class="col-sm-5">
+                <a href="#!/edit" class="btn btn-default btn-edit">Edit</a>
+            </div>
+        </div>
+    </header>
+    <div id="page"></div>
+    <script type="text/template" id="main">
+        <main class="page-main container">
+            <article class="row person">
+                <div class="left-col col-sm-3">
+                    <div class="panel">
+                        <h3 class="h3 person-name"><%= username %></h3>
+                        <ul>
+                            <li>
+                                <%= birthday %>
+                            </li>
+                            <li>
+                                <%= email %>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="right-col col-sm-7">
+                    <div class="panel">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <ul class="contacts">
+                                    <li><%= email %></li>
+                                    <li><%= phonenumber %></li>
+                                    <li>Skill <%= skillnumber %></li>
+                                    <li><%= gender %></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6">
+                                <p><%= brief %></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </main>
+    </script>
+    <div class="modal" id="modalEdit">
+        <div class="modal-dialog modal-full">
+            <div class="modal-content">
+                <form role="form" action="{{ path('process.form') }}">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Edit</h4>
+                        <div class="modal-buttons">
+                            <button class="btn btn-save" id="save">Save</button>
+                            <button class="btn btn-cancel" id="cancel">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="userName">
+                                        <label for="userName">User Name</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="userEmail" class="form-control">
+                                        <label for="userEmail">Email</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="userPhone" class="form-control">
+                                        <label for="userPhone">Phone number</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="form-group col-sm-7">
+                                        <input type="text" class="form-control" name="userBirthday">
+                                        <label for="userBirthday">Birthday</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="siteUrl" class="form-control">
+                                        <label for="siteUrl">URL</label>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-2">
+                                            <div class="form-group">
+                                                <input type="text" name="userSkill" class="form-control">
+                                                <label for="userSkill">Skill number</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <label class="radio">
+                                                <input id="gender.male" type="radio" name="userGender"><span class="outer"><span class="inner"></span></span>Male</label>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <label class="radio">
+                                                <input id="gender.female" type="radio" name="userGender"><span class="outer"><span class="inner"></span></span>Female</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="password">
+                                        <label for="password">Password</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="password2">
+                                        <label for="password2">Repeat Password</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" name="userAbout"></textarea>
+                                    <label for="brief">Enter a brief description of yourself and interest</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
 {% endblock %}
 
