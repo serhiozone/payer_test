@@ -1,0 +1,26 @@
+.person {
+
+	.panel {
+		padding: 15px 10px;
+	}
+	.person-name {
+		margin-top: 0;
+		margin-bottom: 20px;
+	}
+	ul {
+		list-style: none;
+		margin-left: 0;
+		padding-left: 0;
+		&.contacts {
+			float: right;
+			text-align: right;
+		}
+	}
+	// @media (min-width: $screen-lg-min) { 
+	// 	.left-col, .right-col {
+	// 		display: table-cell;
+	// 		float: none;
+	// 		vertical-align: top;
+	// 	}
+	// }
+}
